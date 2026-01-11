@@ -1,1 +1,17 @@
-{"auth":{"rolesSource":"staticwebapp.config.json"},"routes":[{"route":"/admin*","allowedRoles":["admin"]}],"responseOverrides":{"401":{"statusCode":302,"redirect":"/.auth/login/github"}}}
+{
+  "auth": {
+    "rolesSource": "DEFAULT"
+  },
+  "routes": [
+    {
+      "route": "/admin*",
+      "allowedRoles": ["admin"]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/github"
+    }
+  }
+}
