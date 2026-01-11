@@ -4,26 +4,19 @@ module.exports = async function (context, req) {
         server: process.env.SQL_SERVER,
         authentication: {
             type: "default",
-            options: { 
-                userName: process.env.SQL_USER, 
-                password: process.env.SQL_PASSWORD 
-            }
+            options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }
         },
-        options: { 
-            database: process.env.SQL_DATABASE, 
-            encrypt: true, 
-            trustServerCertificate: false 
-        }
+        options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
     };
     return new Promise((resolve) => {
         const connection = new Connection(config);
         connection.on("connect", err => {
-            if (err) { resolve({ status: 500, body: "Fel vid anslutning" }); return; }
+            if (err) { context.log("DB Error:", err); resolve({ status: 500, body: "DB Fel" }); return; }
             const { FullName, Email, Phone, Gender, Preference, City, FBLink } = req.body;
             const query = "INSERT INTO Profiles (FullName, Email, Phone, Gender, Preference, City, FBLink) VALUES (@name, @email, @phone, @gender, @pref, @city, @fblink)";
             const request = new Request(query, (err) => {
                 connection.close();
-                resolve({ status: err ? 500 : 200, body: err ? "Fel vid sparning" : "Success" });
+                resolve({ status: err ? 500 : 200, body: err ? "Save Fel" : "Success" });
             });
             request.addParameter("name", TYPES.NVarChar, FullName);
             request.addParameter("email", TYPES.NVarChar, Email);
