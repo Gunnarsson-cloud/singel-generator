@@ -1,10 +1,15 @@
 const { Connection, Request, TYPES } = require("tedious");
-const config = { server: process.env.SQL_SERVER, authentication: { type: "default", options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }}, options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }};
+const config = { 
+    server: process.env.SQL_SERVER, 
+    authentication: { type: "default", options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }}, 
+    options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
+};
 module.exports = async function (context, req) {
+    context.log("Admin API anropat");
     return new Promise((resolve) => {
         const connection = new Connection(config);
         connection.on("connect", err => {
-            if (err) { resolve({ status: 500, body: "DB Error" }); return; }
+            if (err) { context.log("DB Error:", err); resolve({ status: 500, body: "DB Error" }); return; }
             let query = req.method === "DELETE" ? "DELETE FROM Profiles WHERE Id = @id" : "SELECT Id, FullName, City, SearchType FROM Profiles";
             const request = new Request(query, (err, rowCount, rows) => {
                 connection.close();
