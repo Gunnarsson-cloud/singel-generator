@@ -1,16 +1,1 @@
-{
-  "trailingSlash": "auto",
-  "navigationFallback": {
-    "rewrite": "/index.html"
-  },
-  "responseOverrides": {
-    "401": {
-      "redirect": "/.auth/login/github",
-      "statusCode": 302
-    }
-  },
-  "globalHeaders": {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
-  }
-}
+{"auth":{"rolesSource":"staticwebapp.config.json"},"routes":[{"route":"/admin*","allowedRoles":["admin"]}],"responseOverrides":{"401":{"statusCode":302,"redirect":"/.auth/login/github"}}}
