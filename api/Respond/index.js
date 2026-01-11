@@ -1,3 +1,1 @@
-module.exports = async function (context, req) {
-    context.res = { body: "Svars-motorn är redo!" };
-};
+module.exports = async function (context, req) { context.res = { body: "Respond live" }; };

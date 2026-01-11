@@ -1,9 +1,5 @@
 const { Connection, Request, TYPES } = require("tedious");
-const config = { 
-    server: process.env.SQL_SERVER, 
-    authentication: { type: "default", options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }}, 
-    options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
-};
+const config = { server: process.env.SQL_SERVER, authentication: { type: "default", options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }}, options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }};
 module.exports = async function (context, req) {
     return new Promise((resolve) => {
         const connection = new Connection(config);
