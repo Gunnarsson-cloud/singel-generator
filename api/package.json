@@ -2,6 +2,6 @@
   "name": "api",
   "version": "1.0.0",
   "dependencies": {
-    "tedious": "^16.0.0"
+    "tedious": "^14.0.0"
   }
 }
