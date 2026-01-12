@@ -118,16 +118,30 @@ module.exports = async function (context, req) {
     ]);
 
     const base = baseUrl(req);
-  // CANONICAL_MK_PATCH: force SWA canonical base for opt-in links
+  // CANONICAL_MK_PATCH_V4: force SWA canonical base for opt-in links (safe string concat)
+  const canonical = "https://agreeable-ground-0ee11971e.4.azurestaticapps.net".replace(/\/+$/,"");
+
   const envBaseRaw = (process.env.PUBLIC_BASE_URL || "").trim();
   const envBase = envBaseRaw.replace(/\/+$/,"");
-  const canonical = "https://agreeable-ground-0ee11971e.4.azurestaticapps.net".replace(/\/+$/,"");
-  const publicBase = (envBase && /^https?:\/\//i.test(envBase) && !envBase.includes("azurewebsites.net"))
-    ? envBase
-    : canonical;
 
-  const mk = (tok, ans) => ${publicBase}/api/MatchRespond?token=&answer=;
+  const proto = req.headers["x-forwarded-proto"] || "https";
+  const hostHeader =
+    req.headers["x-original-host"] ||
+    req.headers["x-forwarded-host"] ||
+    req.headers["host"] ||
+    "";
 
+  const hostVal = Array.isArray(hostHeader) ? hostHeader[0] : hostHeader;
+  const host = (hostVal || "").split(",")[0].trim();
+
+  let publicBase = canonical;
+  if (envBase && /^https?:\/\//i.test(envBase) && !envBase.includes("azurewebsites.net")) {
+    publicBase = envBase;
+  } else if (host && !host.includes("azurewebsites.net")) {
+    publicBase = proto + "://" + host;
+  }
+
+  const mk = (tok, ans) => publicBase + "/api/MatchRespond?token=" + encodeURIComponent(tok) + "&answer=" + ans;
     context.res = {
       status: 200,
       headers: { "Content-Type": "application/json" },
@@ -147,4 +161,5 @@ module.exports = async function (context, req) {
     if (connection) connection.close();
   }
 };
+
 
