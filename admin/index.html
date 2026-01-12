@@ -1,118 +1,126 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin - MotesGenerator</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <meta charset="UTF-8">
+  <title>Admin - MotesGenerator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <h1>Adminpanel - Registrerade Profiler</h1>
+  <h1>Adminpanel - Registrerade Profiler</h1>
 
-    <div id="error-box" style="display:none; color:red; border:1px solid red; padding:10px; margin-bottom:20px;"></div>
+  <div id="error-box" style="display:none; color:red; border:1px solid red; padding:10px; margin-bottom:20px;"></div>
 
-    <table>
-        <thead>
-            <tr><th>Namn</th><th>Stad</th><th>Typ</th><th>Åtgärd</th></tr>
-        </thead>
-        <tbody id="user-list"></tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Namn</th>
+        <th>Email</th>
+        <th>Stad</th>
+        <th>Facebook</th>
+        <th>Typ</th>
+        <th>Åtgärd</th>
+      </tr>
+    </thead>
+    <tbody id="user-list"></tbody>
+  </table>
 
-    <script>
-        function showError(message) {
-            const box = document.getElementById('error-box');
-            box.style.display = 'block';
-            box.innerText = message;
-        }
+  <script>
+    function showError(message) {
+      const box = document.getElementById('error-box');
+      box.style.display = 'block';
+      box.innerText = message;
+    }
 
-        function clearError() {
-            const box = document.getElementById('error-box');
-            box.style.display = 'none';
-            box.innerText = '';
-        }
+    function clearError() {
+      const box = document.getElementById('error-box');
+      box.style.display = 'none';
+      box.innerText = '';
+    }
 
-        // Minimal HTML-escaping så ingen råkar injecta markup i tabellen
-        function esc(v) {
-            return String(v ?? '')
-                .replaceAll('&', '&amp;')
-                .replaceAll('<', '&lt;')
-                .replaceAll('>', '&gt;')
-                .replaceAll('"', '&quot;')
-                .replaceAll("'", '&#39;');
-        }
+    function esc(v) {
+      return String(v ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
 
-        async function deleteProfile(id) {
-            const res = await fetch(`/api/profiles?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
-            let payload = null;
-            try { payload = await res.json(); } catch { /* ignore */ }
+    function fbLink(url) {
+      const u = String(url ?? '').trim();
+      if (!u) return '';
+      const safe = esc(u);
+      return `<a href="${safe}" target="_blank" rel="noopener noreferrer">Öppna</a>`;
+    }
 
-            if (!res.ok) {
-                const msg = payload?.error ? payload.error : `Delete misslyckades (Status: ${res.status})`;
-                throw new Error(msg);
-            }
+    async function deleteProfile(id) {
+      const res = await fetch(`/api/profiles?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
+      let payload = null;
+      try { payload = await res.json(); } catch { /* ignore */ }
 
-            if (payload && payload.deleted === 0) {
-                // Inte fatal, men bra att veta
-                console.warn('No row deleted for id', id);
-            }
-        }
+      if (!res.ok) {
+        const msg = payload?.error ? payload.error : `Delete misslyckades (Status: ${res.status})`;
+        throw new Error(msg);
+      }
+    }
 
-        async function load() {
-            clearError();
-            const list = document.getElementById('user-list');
+    function renderRows(data) {
+      const list = document.getElementById('user-list');
 
-            try {
-                const res = await fetch('/api/profiles'); // relative = robust i SWA
-                if (!res.ok) throw new Error('Kunde inte hämta data (Status: ' + res.status + ')');
+      if (!Array.isArray(data) || data.length === 0) {
+        list.innerHTML = '<tr><td colspan="6">Inga profiler hittades i databasen.</td></tr>';
+        return;
+      }
 
-                const data = await res.json();
+      list.innerHTML = data.map(u => `
+        <tr>
+          <td>${esc(u.FullName)}</td>
+          <td>${esc(u.Email ?? '')}</td>
+          <td>${esc(u.City ?? '')}</td>
+          <td>${fbLink(u.FBLink)}</td>
+          <td>${esc(u.SearchType ?? '')}</td>
+          <td><button class="btn-delete" data-id="${esc(u.Id)}">Radera</button></td>
+        </tr>
+      `).join('');
 
-                if (!Array.isArray(data) || data.length === 0) {
-                    list.innerHTML = '<tr><td colspan="4">Inga profiler hittades i databasen.</td></tr>';
-                    return;
-                }
+      document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.id;
+          if (!id) return;
 
-                list.innerHTML = data.map(u => `
-                    <tr>
-                        <td>${esc(u.FullName)}</td>
-                        <td>${esc(u.City)}</td>
-                        <td>${esc(u.SearchType ?? '')}</td>
-                        <td>
-                            <button class="btn-delete" data-id="${esc(u.Id)}">Radera</button>
-                        </td>
-                    </tr>
-                `).join('');
+          const ok = confirm(`Radera profil med Id ${id}?`);
+          if (!ok) return;
 
-                // koppla event handlers efter rendering
-                document.querySelectorAll('.btn-delete').forEach(btn => {
-                    btn.addEventListener('click', async () => {
-                        const id = btn.dataset.id;
-                        if (!id) return;
+          btn.disabled = true;
+          const oldText = btn.innerText;
+          btn.innerText = 'Raderar...';
 
-                        const ok = confirm(`Radera profil med Id ${id}?`);
-                        if (!ok) return;
+          try {
+            await deleteProfile(id);
+            await load();
+          } catch (err) {
+            showError(err.message);
+          } finally {
+            btn.disabled = false;
+            btn.innerText = oldText;
+          }
+        });
+      });
+    }
 
-                        btn.disabled = true;
-                        const oldText = btn.innerText;
-                        btn.innerText = 'Raderar...';
+    async function load() {
+      clearError();
+      try {
+        const res = await fetch('/api/profiles');
+        if (!res.ok) throw new Error('Kunde inte hämta data (Status: ' + res.status + ')');
+        const data = await res.json();
+        renderRows(data);
+      } catch (err) {
+        showError(err.message);
+      }
+    }
 
-                        try {
-                            await deleteProfile(id);
-                            await load();
-                        } catch (err) {
-                            showError(err.message);
-                        } finally {
-                            btn.disabled = false;
-                            btn.innerText = oldText;
-                        }
-                    });
-                });
-
-            } catch (err) {
-                showError(err.message);
-            }
-        }
-
-        load();
-    </script>
+    load();
+  </script>
 </body>
 </html>
