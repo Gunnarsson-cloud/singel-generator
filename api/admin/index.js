@@ -1,29 +1,52 @@
-const { Connection, Request, TYPES } = require("tedious");
-const config = { 
-    server: process.env.SQL_SERVER, 
-    authentication: { type: "default", options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }}, 
-    options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
-};
+const { Connection, Request } = require('tedious');
+
 module.exports = async function (context, req) {
-    context.log("Admin API anropat");
+    const config = {
+        server: process.env.SQL_SERVER,
+        authentication: {
+            type: 'default',
+            options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }
+        },
+        options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
+    };
+
     return new Promise((resolve) => {
         const connection = new Connection(config);
-        connection.on("connect", err => {
-            if (err) { context.log("DB Error:", err); resolve({ status: 500, body: "DB Error" }); return; }
-            let query = req.method === "DELETE" ? "DELETE FROM Profiles WHERE Id = @id" : "SELECT Id, FullName, City, SearchType FROM Profiles";
-            const request = new Request(query, (err, rowCount, rows) => {
+        connection.on('connect', err => {
+            if (err) {
+                resolve({ status: 500, body: JSON.stringify({ error: err.message }) });
+                return;
+            }
+
+            // Detta SQL-kommando skapar tabellen OCH lägger in Andreas/Rebecca om de saknas
+            const sql = \
+                IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Profiles')
+                CREATE TABLE Profiles (ID INT PRIMARY KEY IDENTITY, FullName NVARCHAR(50), City NVARCHAR(50), SearchType NVARCHAR(50));
+                
+                IF NOT EXISTS (SELECT * FROM Profiles WHERE FullName = 'Andreas')
+                INSERT INTO Profiles (FullName, City, SearchType) VALUES ('Andreas', 'Helsingborg', 'Kvinna');
+                
+                IF NOT EXISTS (SELECT * FROM Profiles WHERE FullName = 'Rebecca')
+                INSERT INTO Profiles (FullName, City, SearchType) VALUES ('Rebecca', 'Stockholm', 'Man');
+                
+                SELECT FullName, City, SearchType FROM Profiles;
+            \;
+
+            const results = [];
+            const request = new Request(sql, (err) => {
                 connection.close();
-                if (err) resolve({ status: 500, body: err.message });
-                else if (req.method === "DELETE") resolve({ status: 200 });
-                else {
-                    const data = rows.map(r => ({ Id: r[0].value, FullName: r[1].value, City: r[2].value, SearchType: r[3].value }));
-                    resolve({ body: data, headers: { "Content-Type": "application/json" } });
-                }
+                if (err) resolve({ status: 500, body: JSON.stringify({ error: err.message }) });
+                else resolve({ status: 200, headers: { "Content-Type": "application/json" }, body: JSON.stringify(results) });
             });
-            if (req.method === "DELETE") request.addParameter("id", TYPES.Int, req.query.id);
+
+            request.on('row', columns => {
+                const row = {};
+                columns.forEach(col => { row[col.metadata.colName] = col.value; });
+                results.push(row);
+            });
+
             connection.execSql(request);
         });
         connection.connect();
     });
 };
-// Version update 2026-01-12

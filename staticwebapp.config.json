@@ -1,21 +1,6 @@
 {
-  "auth": {
-    "rolesSource": "DEFAULT"
-  },
   "routes": [
-    {
-      "route": "/admin",
-      "allowedRoles": ["authenticated"]
-    },
-    {
-      "route": "/api/admin",
-      "allowedRoles": ["anonymous"]
-    }
-  ],
-  "responseOverrides": {
-    "401": {
-      "statusCode": 302,
-      "redirect": "/.auth/login/github"
-    }
-  }
+    { "route": "/admin", "allowedRoles": ["authenticated"] },
+    { "route": "/api/admin", "allowedRoles": ["anonymous"] }
+  ]
 }
