@@ -1,0 +1,5 @@
+# Local debug / reports / backups
+_debug/
+inspect-report-*.txt
+index.html.bak-*
+*.bak-*
