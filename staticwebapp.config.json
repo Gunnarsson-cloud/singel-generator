@@ -5,7 +5,7 @@
   "routes": [
     {
       "route": "/admin*",
-      "allowedRoles": ["admin"]
+      "allowedRoles": ["authenticated"]
     }
   ],
   "responseOverrides": {
