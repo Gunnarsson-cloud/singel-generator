@@ -148,7 +148,7 @@ module.exports = async function (context, req) {
         );
       END;
 
-      SELECT TOP (200) Id, FullName, City, SearchType
+      SELECT TOP (200) Id, FullName, Email, City, FBLink, SearchType
       FROM dbo.Profiles
       ORDER BY Id DESC;
     
@@ -189,6 +189,7 @@ const rows = await new Promise((resolve, reject) => {
     };
   }
 };
+
 
 
 
