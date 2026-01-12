@@ -1,12 +1,11 @@
 {
+  "type": "commonjs",
+  "version": "1.0.0",
+  "name": "api",
   "dependencies": {
     "tedious": "^14.0.0"
   },
-  "private": true,
-  "type": "commonjs",
   "engines": {
     "node": "18.x"
-  },
-  "version": "1.0.0",
-  "name": "api"
+  }
 }
