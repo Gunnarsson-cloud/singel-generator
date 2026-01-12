@@ -1,9 +1,16 @@
-const { Connection, Request } = require("tedious");
+let tedious = null;
+try {
+  tedious = require("tedious");
+} catch (e) {
+  // Om tedious saknas i deployen vill vi INTE att funktionen försvinner (404).
+  // Vi svarar med 500 + tydligt fel istället.
+  tedious = null;
+}
 
 function runBatch(connection, sql) {
   return new Promise((resolve, reject) => {
     const rows = [];
-    const request = new Request(sql, (err) => {
+    const request = new (tedious.Request)(sql, (err) => {
       if (err) return reject(err);
       return resolve(rows);
     });
@@ -20,6 +27,20 @@ function runBatch(connection, sql) {
 
 module.exports = async function (context, req) {
   try {
+    if (!tedious) {
+      context.res = {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          error: "Dependency 'tedious' is missing in the deployed API environment.",
+          hint: "Ensure the SWA workflow installs API dependencies in /api (npm install) or configure skip_api_build + apiRuntime.",
+        }),
+      };
+      return;
+    }
+
+    const { Connection } = tedious;
+
     const config = {
       server: process.env.SQL_SERVER,
       authentication: {
@@ -75,9 +96,9 @@ module.exports = async function (context, req) {
         }
 
         try {
-          const rows = await runBatch(connection, sql);
+          const data = await runBatch(connection, sql);
           connection.close();
-          resolve(rows);
+          resolve(data);
         } catch (e) {
           connection.close();
           reject(e);
