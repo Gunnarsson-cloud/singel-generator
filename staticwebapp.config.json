@@ -1,21 +1,12 @@
 {
-  "auth": {
-    "rolesSource": "DEFAULT"
-  },
   "routes": [
     {
-      "route": "/admin",
-      "rewrite": "/admin.html",
+      "route": "/admin*",
       "allowedRoles": ["authenticated"]
     },
     {
       "route": "/api/*",
       "allowedRoles": ["authenticated"]
     }
-  ],
-  "responseOverrides": {
-    "401": {
-      "statusCode": 401
-    }
-  }
+  ]
 }
