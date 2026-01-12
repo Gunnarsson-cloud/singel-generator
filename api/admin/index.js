@@ -26,6 +26,79 @@ function runBatch(connection, sql) {
 }
 
 module.exports = async function (context, req) {
+  // DELETE /api/profiles?id=123
+  if (req.method === "DELETE") {
+    const idRaw = (req.query && req.query.id) ? req.query.id : null;
+    const id = idRaw ? parseInt(idRaw, 10) : NaN;
+
+    if (!Number.isInteger(id) || id <= 0) {
+      context.res = {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ error: "Missing or invalid id. Use /api/profiles?id=123" })
+      };
+      return;
+    }
+
+    try {
+      const tedious = require("tedious");
+      const { Connection, Request, TYPES } = tedious;
+
+      const config = {
+        server: process.env.SQL_SERVER,
+        authentication: {
+          type: "default",
+          options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }
+        },
+        options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
+      };
+
+      const deleted = await new Promise((resolve, reject) => {
+        const connection = new Connection(config);
+
+        connection.on("connect", (err) => {
+          if (err) { connection.close(); return reject(err); }
+
+          const sql = "DELETE FROM dbo.Profiles WHERE Id = @Id; SELECT @@ROWCOUNT AS DeletedCount;";
+          const request = new Request(sql, (err2) => {
+            if (err2) { connection.close(); return reject(err2); }
+          });
+
+          request.addParameter("Id", TYPES.Int, id);
+
+          let count = 0;
+          request.on("row", (cols) => {
+            const col = cols.find(c => c.metadata.colName === "DeletedCount");
+            if (col) count = col.value || 0;
+          });
+
+          request.on("requestCompleted", () => {
+            connection.close();
+            resolve(count);
+          });
+
+          connection.execSql(request);
+        });
+
+        connection.connect();
+      });
+
+      context.res = {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ok: true, id, deleted })
+      };
+      return;
+    } catch (e) {
+      context.log("DELETE error:", e);
+      context.res = {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ error: e.message })
+      };
+      return;
+    }
+  }
   try {
     if (!tedious) {
       context.res = {
@@ -122,4 +195,5 @@ module.exports = async function (context, req) {
     };
   }
 };
+
 
