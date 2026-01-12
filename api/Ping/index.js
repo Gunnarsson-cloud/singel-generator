@@ -1,7 +1,7 @@
 ﻿module.exports = async function (context, req) {
   context.res = {
     status: 200,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ok: true, ts: new Date().toISOString() })
+    headers: { "content-type": "application/json" },
+    body: { ok: true, name: "Ping", ts: new Date().toISOString() }
   };
 };
