@@ -1,5 +1,10 @@
 const { Connection, Request, TYPES } = require("tedious");
 module.exports = async function (context, req) {
+  if (req.method === "GET") {
+    context.res = { status: 200, body: "SubmitProfile live (POST expected)" };
+    return;
+  }
+
     const config = {
         server: process.env.SQL_SERVER,
         authentication: {
@@ -30,3 +35,4 @@ module.exports = async function (context, req) {
         connection.connect();
     });
 };
+

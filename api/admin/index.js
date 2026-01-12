@@ -1,52 +1,103 @@
-const { Connection, Request } = require('tedious');
+const { Connection, Request } = require("tedious");
+
+function runBatch(connection, sql) {
+  return new Promise((resolve, reject) => {
+    const rows = [];
+    const request = new Request(sql, (err) => {
+      if (err) return reject(err);
+      return resolve(rows);
+    });
+
+    request.on("row", (columns) => {
+      const row = {};
+      columns.forEach((c) => (row[c.metadata.colName] = c.value));
+      rows.push(row);
+    });
+
+    connection.execSqlBatch(request);
+  });
+}
 
 module.exports = async function (context, req) {
+  try {
     const config = {
-        server: process.env.SQL_SERVER,
-        authentication: {
-            type: 'default',
-            options: { userName: process.env.SQL_USER, password: process.env.SQL_PASSWORD }
+      server: process.env.SQL_SERVER,
+      authentication: {
+        type: "default",
+        options: {
+          userName: process.env.SQL_USER,
+          password: process.env.SQL_PASSWORD,
         },
-        options: { database: process.env.SQL_DATABASE, encrypt: true, trustServerCertificate: false }
+      },
+      options: {
+        database: process.env.SQL_DATABASE,
+        encrypt: true,
+        trustServerCertificate: false,
+      },
     };
 
-    return new Promise((resolve) => {
-        const connection = new Connection(config);
-        connection.on('connect', err => {
-            if (err) {
-                resolve({ status: 500, body: JSON.stringify({ error: err.message }) });
-                return;
-            }
+    const sql = `
+      IF OBJECT_ID('dbo.Profiles', 'U') IS NULL
+      BEGIN
+        CREATE TABLE dbo.Profiles (
+          Id INT IDENTITY(1,1) PRIMARY KEY,
+          FullName NVARCHAR(200) NULL,
+          Email NVARCHAR(320) NULL,
+          Phone NVARCHAR(50) NULL,
+          Gender NVARCHAR(50) NULL,
+          Preference NVARCHAR(50) NULL,
+          City NVARCHAR(200) NULL,
+          FBLink NVARCHAR(400) NULL,
+          SearchType NVARCHAR(50) NULL,
+          CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+        );
+      END;
 
-            // Denna fråga hämtar data. Om inget finns, kör vi en INSERT och hämtar igen.
-            const sql = \
-                IF NOT EXISTS (SELECT * FROM Profiles)
-                BEGIN
-                    INSERT INTO Profiles (FullName, City, SearchType) 
-                    VALUES ('Andreas', 'Helsingborg', 'Kvinna'), ('Rebecca', 'Stockholm', 'Man');
-                END
-                SELECT FullName, City, SearchType FROM Profiles;
-            \;
+      IF NOT EXISTS (SELECT 1 FROM dbo.Profiles)
+      BEGIN
+        INSERT INTO dbo.Profiles (FullName, City, SearchType)
+        VALUES ('Andreas', 'Helsingborg', 'Kvinna'),
+               ('Rebecca', 'Stockholm', 'Man');
+      END;
 
-            const results = [];
-            const request = new Request(sql, (err) => {
-                connection.close();
-                if (err) resolve({ status: 500, body: JSON.stringify({ error: err.message }) });
-                else resolve({ 
-                    status: 200, 
-                    headers: { "Content-Type": "application/json" }, 
-                    body: JSON.stringify(results) 
-                });
-            });
+      SELECT TOP (200) FullName, City, SearchType
+      FROM dbo.Profiles
+      ORDER BY Id DESC;
+    `;
 
-            request.on('row', columns => {
-                const row = {};
-                columns.forEach(col => { row[col.metadata.colName] = col.value; });
-                results.push(row);
-            });
+    const rows = await new Promise((resolve, reject) => {
+      const connection = new Connection(config);
 
-            connection.execSql(request);
-        });
-        connection.connect();
+      connection.on("connect", async (err) => {
+        if (err) {
+          connection.close();
+          return reject(err);
+        }
+
+        try {
+          const rows = await runBatch(connection, sql);
+          connection.close();
+          resolve(rows);
+        } catch (e) {
+          connection.close();
+          reject(e);
+        }
+      });
+
+      connection.connect();
     });
+
+    context.res = {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(rows),
+    };
+  } catch (e) {
+    context.log("admin error:", e);
+    context.res = {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: e.message }),
+    };
+  }
 };
