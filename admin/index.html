@@ -17,7 +17,7 @@
     <script>
         async function load() {
             try {
-                const res = await fetch('https://agreeable-ground-0ee11971e.4.azurestaticapps.net/api/admin');
+                const res = await fetch('https://agreeable-ground-0ee11971e.4.azurestaticapps.net/api/profiles');
                 if (!res.ok) throw new Error('Kunde inte hämta data (Status: ' + res.status + ')');
                 const data = await res.json();
                 const list = document.getElementById('user-list');
@@ -36,3 +36,4 @@
     </script>
 </body>
 </html>
+
