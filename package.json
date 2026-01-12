@@ -1,5 +1,7 @@
 {
   "name": "motes-generator-root",
-  "version": "1.0.0",
-  "dependencies": {}
+  "version": "1.0.1",
+  "scripts": {
+    "build": "echo Success"
+  }
 }
