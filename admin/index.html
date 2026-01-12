@@ -7,47 +7,32 @@
 </head>
 <body>
     <h1>Adminpanel - Registrerade Profiler</h1>
-    <div id="debug-info" style="background: #fee; color: #900; padding: 10px; margin-bottom: 20px; display: none;"></div>
+    <div id="error-box" style="display:none; color:red; border:1px solid red; padding:10px; margin-bottom:20px;"></div>
     <table>
         <thead>
-            <tr>
-                <th>Namn</th>
-                <th>Stad</th>
-                <th>Typ</th>
-            </tr>
+            <tr><th>Namn</th><th>Stad</th><th>Typ</th></tr>
         </thead>
         <tbody id="user-list"></tbody>
     </table>
-
     <script>
-        async function loadProfiles() {
-            const debugDiv = document.getElementById('debug-info');
+        async function load() {
             try {
-                const response = await fetch('/api/admin');
-                if (!response.ok) {
-                    throw new Error('API svarade med status: ' + response.status + ' (' + response.statusText + ')');
-                }
-                const data = await response.json();
+                const res = await fetch('/api/admin');
+                if (!res.ok) throw new Error('Kunde inte hämta data (Status: ' + res.status + ')');
+                const data = await res.json();
                 const list = document.getElementById('user-list');
-                
                 if (data.length === 0) {
                     list.innerHTML = '<tr><td colspan="3">Inga profiler hittades i databasen.</td></tr>';
                 } else {
-                    list.innerHTML = data.map(u => 
-                        <tr>
-                            <td>\</td>
-                            <td>\</td>
-                            <td>\</td>
-                        </tr>
-                    ).join('');
+                    list.innerHTML = data.map(u => '<tr><td>'+u.FullName+'</td><td>'+u.City+'</td><td>'+u.SearchType+'</td></tr>').join('');
                 }
             } catch (err) {
-                debugDiv.style.display = 'block';
-                debugDiv.innerText = 'FEL: ' + err.message;
-                console.error(err);
+                const box = document.getElementById('error-box');
+                box.style.display = 'block';
+                box.innerText = err.message;
             }
         }
-        loadProfiles();
+        load();
     </script>
 </body>
 </html>
