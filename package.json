@@ -1,1 +1,5 @@
-{"name": "motes-generator", "version": "1.0.0"}
+{
+  "name": "motes-generator-root",
+  "version": "1.0.0",
+  "dependencies": {}
+}
