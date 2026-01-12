@@ -4,26 +4,18 @@
   },
   "routes": [
     {
+      "route": "/admin",
+      "rewrite": "/admin.html",
+      "allowedRoles": ["authenticated"]
+    },
+    {
       "route": "/api/*",
       "allowedRoles": ["authenticated"]
-    },
-    {
-      "route": "/admin",
-      "allowedRoles": ["authenticated"]
-    },
-    {
-      "route": "/.auth/login/github",
-      "allowedRoles": ["anonymous"]
     }
   ],
   "responseOverrides": {
     "401": {
       "statusCode": 401
     }
-  },
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/api/*", "/admin", "/.auth/*"]
-  },
-  "comment": "Force update 1.1"
+  }
 }
