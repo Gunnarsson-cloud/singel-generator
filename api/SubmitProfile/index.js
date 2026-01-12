@@ -17,8 +17,9 @@ module.exports = async function (context, req) {
         const connection = new Connection(config);
         connection.on("connect", err => {
             if (err) { context.log("DB Error:", err); resolve({ status: 500, body: "DB Fel" }); return; }
-            const { FullName, Email, Phone, Gender, Preference, City, FBLink } = req.body;
-            const query = "INSERT INTO Profiles (FullName, Email, Phone, Gender, Preference, City, FBLink) VALUES (@name, @email, @phone, @gender, @pref, @city, @fblink)";
+            const { FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType } = req.body;
+            const meetingType = (SearchType && String(SearchType).trim()) ? String(SearchType).trim() : "Dejt";
+            const query = "INSERT INTO Profiles (FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType) VALUES (@name, @email, @phone, @gender, @pref, @city, @fblink, @searchType)";
             const request = new Request(query, (err) => {
                 connection.close();
                 resolve({ status: err ? 500 : 200, body: err ? "Save Fel" : "Success" });
@@ -28,11 +29,13 @@ module.exports = async function (context, req) {
             request.addParameter("phone", TYPES.NVarChar, Phone);
             request.addParameter("gender", TYPES.NVarChar, Gender);
             request.addParameter("pref", TYPES.NVarChar, Preference);
-            request.addParameter("city", TYPES.NVarChar, City);
+            
+            request.addParameter("searchType", TYPES.NVarChar, meetingType);request.addParameter("city", TYPES.NVarChar, City);
             request.addParameter("fblink", TYPES.NVarChar, FBLink);
             connection.execSql(request);
         });
         connection.connect();
     });
 };
+
 
