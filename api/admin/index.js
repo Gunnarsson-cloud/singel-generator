@@ -81,7 +81,7 @@ module.exports = async function (context, req) {
                ('Rebecca', 'Stockholm', 'Man');
       END;
 
-      SELECT TOP (200) FullName, City, SearchType
+      SELECT TOP (200) Id, FullName, City, SearchType
       FROM dbo.Profiles
       ORDER BY Id DESC;
     `;
@@ -122,3 +122,4 @@ module.exports = async function (context, req) {
     };
   }
 };
+
