@@ -5,6 +5,11 @@ module.exports = async function (context, req) {
     return;
   }
 
+            if (ConsentGDPR !== true) {
+                resolve({ status: 400, body: "Missing GDPR consent (ConsentGDPR must be true)" });
+                return;
+            }
+
     const config = {
         server: process.env.SQL_SERVER,
         authentication: {
@@ -17,9 +22,9 @@ module.exports = async function (context, req) {
         const connection = new Connection(config);
         connection.on("connect", err => {
             if (err) { context.log("DB Error:", err); resolve({ status: 500, body: "DB Fel" }); return; }
-            const { FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType } = req.body;
+            const { FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType, ConsentGDPR } = req.body;
             const meetingType = (SearchType && String(SearchType).trim()) ? String(SearchType).trim() : "Dejt";
-            const query = "INSERT INTO Profiles (FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType) VALUES (@name, @email, @phone, @gender, @pref, @city, @fblink, @searchType)";
+            const query = "INSERT INTO Profiles (FullName, Email, Phone, Gender, Preference, City, FBLink, SearchType, ConsentGDPR, LastActiveAt) VALUES (@name, @email, @phone, @gender, @pref, @city, @fblink, @searchType, @consent, SYSUTCDATETIME())";
             const request = new Request(query, (err) => {
                 connection.close();
                 resolve({ status: err ? 500 : 200, body: err ? "Save Fel" : "Success" });
@@ -30,12 +35,14 @@ module.exports = async function (context, req) {
             request.addParameter("gender", TYPES.NVarChar, Gender);
             request.addParameter("pref", TYPES.NVarChar, Preference);
             
-            request.addParameter("searchType", TYPES.NVarChar, meetingType);request.addParameter("city", TYPES.NVarChar, City);
+            
+            request.addParameter("consent", TYPES.Bit, 1);request.addParameter("searchType", TYPES.NVarChar, meetingType);request.addParameter("city", TYPES.NVarChar, City);
             request.addParameter("fblink", TYPES.NVarChar, FBLink);
             connection.execSql(request);
         });
         connection.connect();
     });
 };
+
 
 
