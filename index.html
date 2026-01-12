@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -13,12 +13,47 @@
         button { width: 100%; padding: 0.75rem; background-color: #0078d4; color: white; border: none; border-radius: 4px; margin-top: 1.5rem; cursor: pointer; font-size: 1rem; }
         button:hover { background-color: #005a9e; }
         #message { margin-top: 1rem; text-align: center; font-weight: bold; }
-    </style>
+    
+/* INFOBOX_CSS */
+.infobox {
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  margin: 0.75rem 0 1rem 0;
+  position: relative;
+}
+.infobox:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 5px;
+  border-radius: 14px;
+  background: #0078d4;
+}
+.infobox-title { font-weight: 700; margin-left: 10px; }
+.infobox-sub { margin: 0.35rem 0 0.6rem 10px; }
+.infobox-list { margin: 0 0 0 22px; padding-left: 1.1rem; }
+.infobox-list li { margin: 0.2rem 0; }
+</style>
 </head>
 <body>
     <div class="container">
         <h2>Gå med i Generatorn</h2>
-        <form id="matchForm">
+        <!-- HERO_SHORT_START -->
+<div class="infobox">
+  <div class="infobox-title">En trygg match i din stad</div>
+  <div class="infobox-sub">Kontaktuppgifter delas f&ouml;rst n&auml;r b&aring;da sagt <strong>JA</strong>.</div>
+  <ul class="infobox-list">
+    <li><strong>Double opt-in:</strong> JA/NEJ via mail</li>
+    <li><strong>Trygghet:</strong> blockera &amp; rapportera</li>
+    <li><strong>48h:</strong> svarstid p&aring; match</li>
+  </ul>
+</div>
+<!-- HERO_SHORT_END -->
+<form id="matchForm">
             <label>Fullständigt namn</label>
             <input type="text" id="FullName" required>
             <label>E-post</label>
@@ -91,6 +126,7 @@
     </script>
 </body>
 </html>
+
 
 
 
