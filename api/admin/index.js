@@ -131,6 +131,7 @@ module.exports = async function (context, req) {
     };
 
     const sql = `
+
       IF OBJECT_ID('dbo.Profiles', 'U') IS NULL
       BEGIN
         CREATE TABLE dbo.Profiles (
@@ -147,19 +148,12 @@ module.exports = async function (context, req) {
         );
       END;
 
-      IF NOT EXISTS (SELECT 1 FROM dbo.Profiles)
-      BEGIN
-        INSERT INTO dbo.Profiles (FullName, City, SearchType)
-        VALUES ('Andreas', 'Helsingborg', 'Kvinna'),
-               ('Rebecca', 'Stockholm', 'Man');
-      END;
-
       SELECT TOP (200) Id, FullName, City, SearchType
       FROM dbo.Profiles
       ORDER BY Id DESC;
-    `;
-
-    const rows = await new Promise((resolve, reject) => {
+    
+`;
+const rows = await new Promise((resolve, reject) => {
       const connection = new Connection(config);
 
       connection.on("connect", async (err) => {
@@ -195,5 +189,6 @@ module.exports = async function (context, req) {
     };
   }
 };
+
 
 
