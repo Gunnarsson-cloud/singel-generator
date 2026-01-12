@@ -1,7 +1,1 @@
-{
-  "name": "api",
-  "version": "1.0.0",
-  "dependencies": {
-    "tedious": "14.4.0"
-  }
-}
+{"name":"api","version":"1.0.0","dependencies":{"tedious":"^14.0.0"}}
