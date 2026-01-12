@@ -118,7 +118,15 @@ module.exports = async function (context, req) {
     ]);
 
     const base = baseUrl(req);
-    const mk = (tok, ans) => `${base}/api/MatchRespond?token=${encodeURIComponent(tok)}&answer=${ans}`;
+  // CANONICAL_MK_PATCH: force SWA canonical base for opt-in links
+  const envBaseRaw = (process.env.PUBLIC_BASE_URL || "").trim();
+  const envBase = envBaseRaw.replace(/\/+$/,"");
+  const canonical = "https://agreeable-ground-0ee11971e.4.azurestaticapps.net".replace(/\/+$/,"");
+  const publicBase = (envBase && /^https?:\/\//i.test(envBase) && !envBase.includes("azurewebsites.net"))
+    ? envBase
+    : canonical;
+
+  const mk = (tok, ans) => ${publicBase}/api/MatchRespond?token=&answer=;
 
     context.res = {
       status: 200,
@@ -139,3 +147,4 @@ module.exports = async function (context, req) {
     if (connection) connection.close();
   }
 };
+
