@@ -1,0 +1,6 @@
+Unhandled exception. Azure.Functions.Cli.Common.CliException: "C:\Users\Andreas\Documents\singel-generator\api\api" doesn't exist.
+   at Azure.Functions.Cli.ConsoleApp.UpdateCurrentDirectory(String[] args) in /_/src/Cli/func/ConsoleApp.cs:line 445
+   at Azure.Functions.Cli.ConsoleApp..ctor(String[] args, Assembly assembly, IContainer container) in /_/src/Cli/func/ConsoleApp.cs:line 42
+   at Azure.Functions.Cli.ConsoleApp.RunAsync[T](String[] args, IContainer container, CancellationToken cancellationToken) in /_/src/Cli/func/ConsoleApp.cs:line 61
+   at Azure.Functions.Cli.Program.Main(String[] args) in /_/src/Cli/func/Program.cs:line 44
+   at Azure.Functions.Cli.Program.<Main>(String[] args)

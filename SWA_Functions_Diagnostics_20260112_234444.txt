@@ -1,0 +1,441 @@
+[2026-01-12 23:44:44] ===============================================================
+[2026-01-12 23:44:44]  Azure Static Web Apps – Functions Diagnostics (Version 3)
+[2026-01-12 23:44:44]  Timestamp: 01/12/2026 23:44:44
+[2026-01-12 23:44:44] ===============================================================
+[2026-01-12 23:44:44] 
+[2026-01-12 23:44:44] === 1. REPO OCH API STRUKTUR ===
+[2026-01-12 23:44:44] API-mapp hittad: .\api
+[2026-01-12 23:44:44] 
+FullName                                                                                                  Length Mod
+                                                                                                                 e  
+--------                                                                                                  ------ ---
+C:\Users\Andreas\Documents\singel-generator\api\admin                                                            d--
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair                                                        d--
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches                                                    d--
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts                                                 d--
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles                                                      d--
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens                                                 d--
+C:\Users\Andreas\Documents\singel-generator\api\MatchMaker                                                       d--
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow                                                         d--
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond                                                     d--
+C:\Users\Andreas\Documents\singel-generator\api\Ping                                                             d--
+C:\Users\Andreas\Documents\singel-generator\api\Respond                                                          d--
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile                                                    d--
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail                                          d--
+C:\Users\Andreas\Documents\singel-generator\api\host.json                                                 146    -a-
+C:\Users\Andreas\Documents\singel-generator\api\host.json.bak-20260112-224651                             137    -a-
+C:\Users\Andreas\Documents\singel-generator\api\package.json                                              152    -a-
+C:\Users\Andreas\Documents\singel-generator\api\package.json.bak-20260112-220243                          124    -a-
+C:\Users\Andreas\Documents\singel-generator\api\admin\function.json                                       330    -a-
+C:\Users\Andreas\Documents\singel-generator\api\admin\index.js                                            5491   -a-
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair\function.json                                   266    -a-
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair\index.js                                        3557   -a-
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\function.json                               265    -a-
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\index.js                                    1918   -a-
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\function.json                            265    -a-
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\index.js                                 3304   -a-
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\function.json                                 250    -a-
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\index.js                                      272    -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\function.json                            265    -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js                                 5913   -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-211427             4999   -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-211922             4999   -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-212153             4999   -a-
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-212808             5396   -a-
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow\function.json                                    266    -a-
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow\index.js                                         6259   -a-
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\function.json                                250    -a-
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\index.js                                     4687   -a-
+C:\Users\Andreas\Documents\singel-generator\api\Ping\function.json                                        202    -a-
+C:\Users\Andreas\Documents\singel-generator\api\Ping\index.js                                             222    -a-
+C:\Users\Andreas\Documents\singel-generator\api\Respond\function.json                                     158    -a-
+C:\Users\Andreas\Documents\singel-generator\api\Respond\index.js                                          93     -a-
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\function.json                               273    -a-
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\index.js                                    4757   -a-
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json                     282    -a-
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json.bak-20260112-224651 267    -a-
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js                          2196   -a-
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js.bak-20260112-220243      1748   -a-
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js.bak-20260112-224651      3000   -a-
+
+
+
+[2026-01-12 23:44:44] 
+[2026-01-12 23:44:44] === 2. host.json ===
+[2026-01-12 23:44:44] host.json innehåll:
+[2026-01-12 23:44:44] {
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+
+[2026-01-12 23:44:44] 
+[2026-01-12 23:44:44] === 3. function.json filer ===
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\admin\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "delete"
+      ],
+      "route": "profiles"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\BlockPair\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\MatchNow\function.json ---
+[2026-01-12 23:44:44] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:44] --- C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\function.json ---
+[2026-01-12 23:44:45] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:45] --- C:\Users\Andreas\Documents\singel-generator\api\Ping\function.json ---
+[2026-01-12 23:44:45] {
+  "bindings": [
+    { "authLevel": "anonymous", "type": "httpTrigger", "direction": "in", "name": "req", "methods": ["get"] },
+    { "type": "http", "direction": "out", "name": "res" }
+  ]
+}
+
+[2026-01-12 23:44:45] --- C:\Users\Andreas\Documents\singel-generator\api\Respond\function.json ---
+[2026-01-12 23:44:45] {"bindings":[{"authLevel":"anonymous","type":"httpTrigger","direction":"in","name":"req","methods":["get"]},{"type":"http","direction":"out","name":"res"}]}
+
+[2026-01-12 23:44:45] --- C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\function.json ---
+[2026-01-12 23:44:45] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:45] --- C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json ---
+[2026-01-12 23:44:45] {
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [ "post", "options" ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 4. api/package.json ===
+[2026-01-12 23:44:45] package.json (api):
+[2026-01-12 23:44:45] {
+    "name":  "api",
+    "version":  "1.0.0",
+    "dependencies":  {
+                         "tedious":  "^14.0.0"
+                     }
+}
+
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 5. TypeScript kontroll ===
+[2026-01-12 23:44:45] Ingen tsconfig.json – antar JavaScript.
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 6. Node och npm lokalt ===
+[2026-01-12 23:44:45] node version: v24.12.0
+[2026-01-12 23:44:45] npm version: 11.6.2
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 7. staticwebapp.config.json ===
+[2026-01-12 23:44:45] {
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/api/*"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/admin",
+      "allowedRoles": [
+        "authenticated"
+      ]
+    },
+    {
+      "route": "/api/*",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "allowedRoles": [
+        "anonymous"
+      ]
+    },
+    {
+      "route": "/admin/*",
+      "allowedRoles": [
+        "authenticated"
+      ]
+    }
+  ]
+}
+
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 8. Tomma JS-filer ===
+[2026-01-12 23:44:45] Inga tomma JS-filer hittades.
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 9. GitHub Actions workflow ===
+[2026-01-12 23:44:45] --- C:\Users\Andreas\Documents\singel-generator\.github\workflows\azure-static-web-apps-agreeable-ground-0ee11971e.yml ---
+[2026-01-12 23:44:45] name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_GROUND_0EE11971E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          output_location: "/" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_GROUND_0EE11971E }}
+          action: "close"
+
+
+
+
+
+[2026-01-12 23:44:45] 
+[2026-01-12 23:44:45] === 10. Byggsteg i api (valfritt) ===
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] === 11. Validera artefakter och skapa zip (simulera SWA upload) ===
+[2026-01-12 23:44:53] function.json hittades i minst en function-mapp.
+[2026-01-12 23:44:53] Alla förväntade filer för paketering finns.
+[2026-01-12 23:44:53] Skapade zip för api artefakter: swa_api_artifact_20260112_234444.zip
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] FullName                                                  Length
+[2026-01-12 23:44:53] --------                                                  ------
+[2026-01-12 23:44:53] host.json                                                    146
+[2026-01-12 23:44:53] host.json.bak-20260112-224651                                137
+[2026-01-12 23:44:53] MatchMaker\                                                    0
+[2026-01-12 23:44:53] package.json                                                 152
+[2026-01-12 23:44:53] package.json.bak-20260112-220243                             124
+[2026-01-12 23:44:53] SWA_Functions_Diagnostics_20260112_234444.txt                132
+[2026-01-12 23:44:53] admin\function.json                                          330
+[2026-01-12 23:44:53] admin\index.js                                              5491
+[2026-01-12 23:44:53] BlockPair\function.json                                      266
+[2026-01-12 23:44:53] BlockPair\index.js                                          3557
+[2026-01-12 23:44:53] ExpireMatches\function.json                                  265
+[2026-01-12 23:44:53] ExpireMatches\index.js                                      1918
+[2026-01-12 23:44:53] GetMatchContacts\function.json                               265
+[2026-01-12 23:44:53] GetMatchContacts\index.js                                   3304
+[2026-01-12 23:44:53] GetProfiles\function.json                                    250
+[2026-01-12 23:44:53] GetProfiles\index.js                                         272
+[2026-01-12 23:44:53] IssueOptInTokens\function.json                               265
+[2026-01-12 23:44:53] IssueOptInTokens\index.js                                   5913
+[2026-01-12 23:44:53] IssueOptInTokens\index.js.bak-20260112-211427               4999
+[2026-01-12 23:44:53] IssueOptInTokens\index.js.bak-20260112-211922               4999
+[2026-01-12 23:44:53] IssueOptInTokens\index.js.bak-20260112-212153               4999
+[2026-01-12 23:44:53] IssueOptInTokens\index.js.bak-20260112-212808               5396
+[2026-01-12 23:44:53] MatchNow\function.json                                       266
+[2026-01-12 23:44:53] MatchNow\index.js                                           6259
+[2026-01-12 23:44:53] MatchRespond\function.json                                   250
+[2026-01-12 23:44:53] MatchRespond\index.js                                       4687
+[2026-01-12 23:44:53] Ping\function.json                                           202
+[2026-01-12 23:44:53] Ping\index.js                                                222
+[2026-01-12 23:44:53] Respond\function.json                                        158
+[2026-01-12 23:44:53] Respond\index.js                                              93
+[2026-01-12 23:44:53] SubmitProfile\function.json                                  273
+[2026-01-12 23:44:53] SubmitProfile\index.js                                      4757
+[2026-01-12 23:44:53] _disabled_SendTestEmail\function.json                        282
+[2026-01-12 23:44:53] _disabled_SendTestEmail\function.json.bak-20260112-224651    267
+[2026-01-12 23:44:53] _disabled_SendTestEmail\index.js                            2196
+[2026-01-12 23:44:53] _disabled_SendTestEmail\index.js.bak-20260112-220243        1748
+[2026-01-12 23:44:53] _disabled_SendTestEmail\index.js.bak-20260112-224651        3000
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] === 12. Försök starta Azure Functions lokalt ===
+[2026-01-12 23:44:53] Azure Functions Core Tools (func) hittades inte. Installera för att testa lokalt.
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] === 13. ESM och CommonJS kontroll ===
+[2026-01-12 23:44:53] package.json saknar type: module eller är CommonJS. Om du använder import/export kan det orsaka runtimefel.
+[2026-01-12 23:44:53] Ingen 'main' i package.json.
+[2026-01-12 23:44:53] 
+[2026-01-12 23:44:53] ===============================================================
+[2026-01-12 23:44:53]  SAMMANFATTANDE DIAGNOS
+[2026-01-12 23:44:53] ===============================================================

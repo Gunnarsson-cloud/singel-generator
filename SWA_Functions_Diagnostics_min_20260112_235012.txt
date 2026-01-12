@@ -1,0 +1,277 @@
+=== SWA Functions Diagnostics (minimal) ===
+Timestamp: 01/12/2026 23:50:12
+
+--- 1) Lista api/ innehåll ---
+
+FullName                                                                                                  Length
+--------                                                                                                  ------
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail                                   
+C:\Users\Andreas\Documents\singel-generator\api\admin                                                     
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair                                                 
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches                                             
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts                                          
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles                                               
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens                                          
+C:\Users\Andreas\Documents\singel-generator\api\MatchMaker                                                
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow                                                  
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond                                              
+C:\Users\Andreas\Documents\singel-generator\api\Ping                                                      
+C:\Users\Andreas\Documents\singel-generator\api\Respond                                                   
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile                                             
+C:\Users\Andreas\Documents\singel-generator\api\host.json                                                 146
+C:\Users\Andreas\Documents\singel-generator\api\host.json.bak-20260112-224651                             137
+C:\Users\Andreas\Documents\singel-generator\api\package.json                                              152
+C:\Users\Andreas\Documents\singel-generator\api\package.json.bak-20260112-220243                          124
+C:\Users\Andreas\Documents\singel-generator\api\SWA_Functions_Diagnostics_20260112_234444.txt             132
+C:\Users\Andreas\Documents\singel-generator\api\admin\function.json                                       330
+C:\Users\Andreas\Documents\singel-generator\api\admin\index.js                                            5491
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair\function.json                                   266
+C:\Users\Andreas\Documents\singel-generator\api\BlockPair\index.js                                        3557
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\function.json                               265
+C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\index.js                                    1918
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\function.json                            265
+C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\index.js                                 3304
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\function.json                                 250
+C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\index.js                                      272
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\function.json                            265
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js                                 5913
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-211427             4999
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-211922             4999
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-212153             4999
+C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\index.js.bak-20260112-212808             5396
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow\function.json                                    266
+C:\Users\Andreas\Documents\singel-generator\api\MatchNow\index.js                                         6259
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\function.json                                250
+C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\index.js                                     4687
+C:\Users\Andreas\Documents\singel-generator\api\Ping\function.json                                        202
+C:\Users\Andreas\Documents\singel-generator\api\Ping\index.js                                             222
+C:\Users\Andreas\Documents\singel-generator\api\Respond\function.json                                     158
+C:\Users\Andreas\Documents\singel-generator\api\Respond\index.js                                          93
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\function.json                               273
+C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\index.js                                    4757
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json                     282
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json.bak-20260112-224651 267
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js                          2196
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js.bak-20260112-220243      1748
+C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\index.js.bak-20260112-224651      3000
+
+
+--- 2) host.json ---
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+
+--- 3) Alla function.json ---
+FILE: C:\Users\Andreas\Documents\singel-generator\api\admin\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "delete"
+      ],
+      "route": "profiles"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\BlockPair\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\ExpireMatches\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\GetMatchContacts\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\GetProfiles\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\IssueOptInTokens\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\MatchNow\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\MatchRespond\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\Ping\function.json
+{
+  "bindings": [
+    { "authLevel": "anonymous", "type": "httpTrigger", "direction": "in", "name": "req", "methods": ["get"] },
+    { "type": "http", "direction": "out", "name": "res" }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\Respond\function.json
+{"bindings":[{"authLevel":"anonymous","type":"httpTrigger","direction":"in","name":"req","methods":["get"]},{"type":"http","direction":"out","name":"res"}]}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\SubmitProfile\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+FILE: C:\Users\Andreas\Documents\singel-generator\api\_disabled_SendTestEmail\function.json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [ "post", "options" ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+
+--- 4) api/package.json ---
+{
+    "name":  "api",
+    "version":  "1.0.0",
+    "dependencies":  {
+                         "tedious":  "^14.0.0"
+                     }
+}
+
+--- 5) Kontrollera tomma .js filer ---
+
+--- 6) Sammanfattning ---
+Logg skapad: SWA_Functions_Diagnostics_min_20260112_235012.txt
