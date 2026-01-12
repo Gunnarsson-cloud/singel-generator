@@ -1,8 +1,7 @@
-{
-  "name": "api",
-  "version": "1.0.0",
-  "dependencies": {
-    "tedious": "^14.0.0",
-    "resend": "^4.0.0"
-  }
+﻿{
+    "name":  "api",
+    "version":  "1.0.0",
+    "dependencies":  {
+                         "tedious":  "^14.0.0"
+                     }
 }
