@@ -8,6 +8,10 @@
 <body>
   <h1>Adminpanel - Registrerade Profiler</h1>
 
+  <label for="search"><strong>Sök:</strong></label>
+  <input id="search" type="search" placeholder="Sök på namn, email, stad eller typ..." style="max-width:520px; width:100%; margin-bottom:12px;">
+
+
   <div id="error-box" style="display:none; color:red; border:1px solid red; padding:10px; margin-bottom:20px;"></div>
 
   <table>
@@ -24,7 +28,9 @@
     <tbody id="user-list"></tbody>
   </table>
 
-  <script>
+    <script>
+    let allProfiles = [];
+
     function showError(message) {
       const box = document.getElementById('error-box');
       box.style.display = 'block';
@@ -62,6 +68,15 @@
         const msg = payload?.error ? payload.error : `Delete misslyckades (Status: ${res.status})`;
         throw new Error(msg);
       }
+    }
+
+        function applyFilter() {
+      const q = (document.getElementById("search")?.value ?? "").trim().toLowerCase();
+      const filtered = !q ? allProfiles : allProfiles.filter(u => {
+        const hay = `${u.FullName ?? ""} ${u.Email ?? ""} ${u.City ?? ""} ${u.SearchType ?? ""}`.toLowerCase();
+        return hay.includes(q);
+      });
+      renderRows(filtered);
     }
 
     function renderRows(data) {
@@ -114,13 +129,16 @@
         const res = await fetch('/api/profiles');
         if (!res.ok) throw new Error('Kunde inte hämta data (Status: ' + res.status + ')');
         const data = await res.json();
-        renderRows(data);
+        allProfiles = Array.isArray(data) ? data : []; applyFilter();
       } catch (err) {
         showError(err.message);
       }
     }
 
+        document.getElementById("search")?.addEventListener("input", applyFilter);
+
     load();
   </script>
 </body>
 </html>
+
