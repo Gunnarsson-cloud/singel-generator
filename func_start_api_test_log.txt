@@ -1,0 +1,639 @@
+'local.settings.json' found in root directory (C:\Users\Andreas\Documents\singel-generator\api-test).
+Resolving worker runtime to 'node'.
+Selected out-of-process host.
+
+
+                  %%%%%%
+                 %%%%%%
+            @   %%%%%%    @
+          @@   %%%%%%      @@
+       @@@    %%%%%%%%%%%    @@@
+     @@      %%%%%%%%%%        @@
+       @@         %%%%       @@
+         @@      %%%       @@
+           @@    %%      @@
+                %%
+                %
+
+
+Azure Functions Core Tools
+Core Tools Version:       4.6.0+ab90faafcab539d63cd3d0ce5faf1bca4395fccc (64-bit)
+Function Runtime Version: 4.1045.200.25556
+
+[2026-01-12T23:50:02.888Z] Building host: version spec: , startup suppressed: 'False', configuration suppressed: 'False', startup operation id: '65996d5d-f6d3-4f2d-9431-7437e521c6ea'
+[2026-01-12T23:50:02.898Z] Reading host configuration file 'C:\Users\Andreas\Documents\singel-generator\api-test\host.json'
+[2026-01-12T23:50:02.899Z] Host configuration file read:
+[2026-01-12T23:50:02.900Z] {
+[2026-01-12T23:50:02.900Z]   "version": "2.0",
+[2026-01-12T23:50:02.901Z]   "extensionBundle": {
+[2026-01-12T23:50:02.902Z]     "id": "Microsoft.Azure.Functions.ExtensionBundle",
+[2026-01-12T23:50:02.903Z]     "version": "[4.*, 5.0.0)"
+[2026-01-12T23:50:02.905Z]   }
+[2026-01-12T23:50:02.906Z] }
+[2026-01-12T23:50:02.925Z] Looking for extension bundle Microsoft.Azure.Functions.ExtensionBundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle
+[2026-01-12T23:50:02.927Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:02.927Z] Found a matching extension bundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:02.960Z] Loading functions metadata
+[2026-01-12T23:50:02.962Z] Worker indexing is enabled
+[2026-01-12T23:50:02.964Z] Fetching metadata for workerRuntime: node
+[2026-01-12T23:50:02.964Z] Reading functions metadata (Worker)
+[2026-01-12T23:50:03.141Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 connecting on 127.0.0.1:49926
+[2026-01-12T23:50:05.280Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received WorkerInitRequest
+[2026-01-12T23:50:05.355Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionsMetadataRequest
+[2026-01-12T23:50:05.361Z] Reading functions metadata (Host)
+[2026-01-12T23:50:05.372Z] 11 functions found (Host)
+[2026-01-12T23:50:05.376Z] 11 functions loaded
+[2026-01-12T23:50:05.379Z] Looking for extension bundle Microsoft.Azure.Functions.ExtensionBundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle
+[2026-01-12T23:50:05.379Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:05.381Z] Found a matching extension bundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:05.382Z] Fetching information on versions of extension bundle Microsoft.Azure.Functions.ExtensionBundle available on https://cdn.functions.azure.com/public/ExtensionBundles/Microsoft.Azure.Functions.ExtensionBundle/index.json
+[2026-01-12T23:50:05.470Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:05.472Z] Skipping bundle download since it already exists at path C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:05.476Z] Loading extension bundle from C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0\bin
+[2026-01-12T23:50:05.477Z] Script Startup resetting load context with base path: 'C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0\bin'.
+[2026-01-12T23:50:05.486Z] Reading host configuration file 'C:\Users\Andreas\Documents\singel-generator\api-test\host.json'
+[2026-01-12T23:50:05.487Z] Host configuration file read:
+[2026-01-12T23:50:05.488Z] {
+[2026-01-12T23:50:05.489Z]   "version": "2.0",
+[2026-01-12T23:50:05.490Z]   "extensionBundle": {
+[2026-01-12T23:50:05.491Z]     "id": "Microsoft.Azure.Functions.ExtensionBundle",
+[2026-01-12T23:50:05.491Z]     "version": "[4.*, 5.0.0)"
+[2026-01-12T23:50:05.492Z]   }
+[2026-01-12T23:50:05.492Z] }
+[2026-01-12T23:50:05.529Z] Starting host metrics provider.
+[2026-01-12T23:50:05.613Z] Initializing Warmup Extension.
+[2026-01-12T23:50:05.652Z] Initializing Host. OperationId: '65996d5d-f6d3-4f2d-9431-7437e521c6ea'.
+[2026-01-12T23:50:05.657Z] Host initialization: ConsecutiveErrors=0, StartupCount=1, OperationId=65996d5d-f6d3-4f2d-9431-7437e521c6ea
+[2026-01-12T23:50:05.680Z] LoggerFilterOptions
+[2026-01-12T23:50:05.680Z] {
+[2026-01-12T23:50:05.681Z]   "MinLevel": "None",
+[2026-01-12T23:50:05.681Z]   "Rules": [
+[2026-01-12T23:50:05.682Z]     {
+[2026-01-12T23:50:05.683Z]       "ProviderName": null,
+[2026-01-12T23:50:05.684Z]       "CategoryName": "Microsoft.Hosting.Lifetime",
+[2026-01-12T23:50:05.684Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.686Z]       "Filter": null
+[2026-01-12T23:50:05.686Z]     },
+[2026-01-12T23:50:05.688Z]     {
+[2026-01-12T23:50:05.689Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.690Z]       "CategoryName": null,
+[2026-01-12T23:50:05.690Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.692Z]       "Filter": null
+[2026-01-12T23:50:05.694Z]     },
+[2026-01-12T23:50:05.694Z]     {
+[2026-01-12T23:50:05.697Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.697Z]       "CategoryName": null,
+[2026-01-12T23:50:05.698Z]       "LogLevel": null,
+[2026-01-12T23:50:05.699Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.700Z]     },
+[2026-01-12T23:50:05.700Z]     {
+[2026-01-12T23:50:05.701Z]       "ProviderName": null,
+[2026-01-12T23:50:05.701Z]       "CategoryName": null,
+[2026-01-12T23:50:05.702Z]       "LogLevel": null,
+[2026-01-12T23:50:05.702Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.705Z]     },
+[2026-01-12T23:50:05.705Z]     {
+[2026-01-12T23:50:05.707Z]       "ProviderName": null,
+[2026-01-12T23:50:05.709Z]       "CategoryName": null,
+[2026-01-12T23:50:05.709Z]       "LogLevel": null,
+[2026-01-12T23:50:05.713Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.713Z]     },
+[2026-01-12T23:50:05.715Z]     {
+[2026-01-12T23:50:05.715Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:05.716Z]       "CategoryName": null,
+[2026-01-12T23:50:05.716Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.717Z]       "Filter": null
+[2026-01-12T23:50:05.717Z]     },
+[2026-01-12T23:50:05.718Z]     {
+[2026-01-12T23:50:05.719Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:05.722Z]       "CategoryName": null,
+[2026-01-12T23:50:05.724Z]       "LogLevel": null,
+[2026-01-12T23:50:05.724Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.725Z]     },
+[2026-01-12T23:50:05.726Z]     {
+[2026-01-12T23:50:05.727Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.727Z]       "CategoryName": null,
+[2026-01-12T23:50:05.730Z]       "LogLevel": null,
+[2026-01-12T23:50:05.730Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.731Z]     }
+[2026-01-12T23:50:05.731Z]   ]
+[2026-01-12T23:50:05.732Z] }
+[2026-01-12T23:50:05.733Z] LoggerFilterOptions
+[2026-01-12T23:50:05.734Z] {
+[2026-01-12T23:50:05.734Z]   "MinLevel": "None",
+[2026-01-12T23:50:05.735Z]   "Rules": [
+[2026-01-12T23:50:05.735Z]     {
+[2026-01-12T23:50:05.739Z]       "ProviderName": null,
+[2026-01-12T23:50:05.741Z]       "CategoryName": "Microsoft.Hosting.Lifetime",
+[2026-01-12T23:50:05.741Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.742Z]       "Filter": null
+[2026-01-12T23:50:05.742Z]     },
+[2026-01-12T23:50:05.743Z]     {
+[2026-01-12T23:50:05.744Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.747Z]       "CategoryName": null,
+[2026-01-12T23:50:05.747Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.748Z]       "Filter": null
+[2026-01-12T23:50:05.748Z]     },
+[2026-01-12T23:50:05.749Z]     {
+[2026-01-12T23:50:05.749Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.750Z]       "CategoryName": null,
+[2026-01-12T23:50:05.751Z]       "LogLevel": null,
+[2026-01-12T23:50:05.752Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.752Z]     },
+[2026-01-12T23:50:05.756Z]     {
+[2026-01-12T23:50:05.757Z]       "ProviderName": null,
+[2026-01-12T23:50:05.757Z]       "CategoryName": null,
+[2026-01-12T23:50:05.759Z]       "LogLevel": null,
+[2026-01-12T23:50:05.759Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.760Z]     },
+[2026-01-12T23:50:05.760Z]     {
+[2026-01-12T23:50:05.763Z]       "ProviderName": null,
+[2026-01-12T23:50:05.763Z]       "CategoryName": null,
+[2026-01-12T23:50:05.764Z]       "LogLevel": null,
+[2026-01-12T23:50:05.764Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.765Z]     },
+[2026-01-12T23:50:05.766Z]     {
+[2026-01-12T23:50:05.767Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:05.767Z]       "CategoryName": null,
+[2026-01-12T23:50:05.768Z]       "LogLevel": "None",
+[2026-01-12T23:50:05.773Z]       "Filter": null
+[2026-01-12T23:50:05.774Z]     },
+[2026-01-12T23:50:05.775Z]     {
+[2026-01-12T23:50:05.775Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:05.776Z]       "CategoryName": null,
+[2026-01-12T23:50:05.778Z]       "LogLevel": null,
+[2026-01-12T23:50:05.778Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.780Z]     },
+[2026-01-12T23:50:05.780Z]     {
+[2026-01-12T23:50:05.781Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:05.782Z]       "CategoryName": null,
+[2026-01-12T23:50:05.783Z]       "LogLevel": null,
+[2026-01-12T23:50:05.783Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:05.786Z]     }
+[2026-01-12T23:50:05.787Z]   ]
+[2026-01-12T23:50:05.789Z] }
+[2026-01-12T23:50:05.790Z] HttpWorkerOptions
+[2026-01-12T23:50:05.791Z] {
+[2026-01-12T23:50:05.791Z]   "Type": 0,
+[2026-01-12T23:50:05.792Z]   "Description": null,
+[2026-01-12T23:50:05.792Z]   "Arguments": null,
+[2026-01-12T23:50:05.793Z]   "Port": 49929,
+[2026-01-12T23:50:05.794Z]   "IsPortManuallySet": false,
+[2026-01-12T23:50:05.796Z]   "EnableForwardingHttpRequest": false,
+[2026-01-12T23:50:05.797Z]   "EnableProxyingHttpRequest": false,
+[2026-01-12T23:50:05.797Z]   "InitializationTimeout": "00:00:30",
+[2026-01-12T23:50:05.797Z]   "CustomRoutesEnabled": false,
+[2026-01-12T23:50:05.797Z]   "Http": null
+[2026-01-12T23:50:05.798Z] }
+[2026-01-12T23:50:05.799Z] FunctionResultAggregatorOptions
+[2026-01-12T23:50:05.799Z] {
+[2026-01-12T23:50:05.800Z]   "BatchSize": 1000,
+[2026-01-12T23:50:05.801Z]   "FlushTimeout": "00:00:30",
+[2026-01-12T23:50:05.802Z]   "IsEnabled": true
+[2026-01-12T23:50:05.802Z] }
+[2026-01-12T23:50:05.805Z] ConcurrencyOptions
+[2026-01-12T23:50:05.805Z] {
+[2026-01-12T23:50:05.805Z]   "DynamicConcurrencyEnabled": false,
+[2026-01-12T23:50:05.806Z]   "MaximumFunctionConcurrency": 500,
+[2026-01-12T23:50:05.806Z]   "CPUThreshold": 0.8,
+[2026-01-12T23:50:05.807Z]   "SnapshotPersistenceEnabled": true
+[2026-01-12T23:50:05.807Z] }
+[2026-01-12T23:50:05.808Z] SingletonOptions
+[2026-01-12T23:50:05.808Z] {
+[2026-01-12T23:50:05.808Z]   "LockPeriod": "00:00:15",
+[2026-01-12T23:50:05.809Z]   "ListenerLockPeriod": "00:00:15",
+[2026-01-12T23:50:05.809Z]   "LockAcquisitionTimeout": "10675199.02:48:05.4775807",
+[2026-01-12T23:50:05.810Z]   "LockAcquisitionPollingInterval": "00:00:05",
+[2026-01-12T23:50:05.810Z]   "ListenerLockRecoveryPollingInterval": "00:01:00"
+[2026-01-12T23:50:05.812Z] }
+[2026-01-12T23:50:05.813Z] ScaleOptions
+[2026-01-12T23:50:05.813Z] {
+[2026-01-12T23:50:05.814Z]   "ScaleMetricsMaxAge": "00:02:00",
+[2026-01-12T23:50:05.814Z]   "ScaleMetricsSampleInterval": "00:00:10",
+[2026-01-12T23:50:05.815Z]   "MetricsPurgeEnabled": true,
+[2026-01-12T23:50:05.815Z]   "IsTargetScalingEnabled": true,
+[2026-01-12T23:50:05.816Z]   "IsRuntimeScalingEnabled": false
+[2026-01-12T23:50:05.817Z] }
+[2026-01-12T23:50:05.823Z] Starting JobHost
+[2026-01-12T23:50:05.827Z] Starting Host (HostId=gamepc-1450412319, InstanceId=a0ea7f9e-924f-4775-b35a-0db10dbcf9a6, Version=4.1045.200.25556, ProcessId=2808, AppDomainId=1, InDebugMode=False, InDiagnosticMode=False, FunctionsExtensionVersion=(null))
+[2026-01-12T23:50:05.831Z] Loading functions metadata
+[2026-01-12T23:50:05.832Z] Worker indexing is enabled
+[2026-01-12T23:50:05.833Z] Fetching metadata for workerRuntime: node
+[2026-01-12T23:50:05.835Z] Reading functions metadata (Worker)
+[2026-01-12T23:50:05.836Z] Reading functions metadata (Host)
+[2026-01-12T23:50:05.840Z] 11 functions found (Host)
+[2026-01-12T23:50:05.843Z] Reading functions metadata (Custom)
+[2026-01-12T23:50:05.850Z] 0 functions found (Custom)
+[2026-01-12T23:50:05.855Z] 11 functions loaded
+[2026-01-12T23:50:05.884Z] Generating 11 job function(s)
+[2026-01-12T23:50:05.884Z] Worker process started and initialized.
+[2026-01-12T23:50:05.923Z] Found the following functions:
+[2026-01-12T23:50:05.924Z] Host.Functions.admin
+[2026-01-12T23:50:05.924Z] Host.Functions.BlockPair
+[2026-01-12T23:50:05.925Z] Host.Functions.ExpireMatches
+[2026-01-12T23:50:05.927Z] Host.Functions.GetMatchContacts
+[2026-01-12T23:50:05.928Z] Host.Functions.GetProfiles
+[2026-01-12T23:50:05.928Z] Host.Functions.IssueOptInTokens
+[2026-01-12T23:50:05.928Z] Host.Functions.MatchNow
+[2026-01-12T23:50:05.929Z] Host.Functions.MatchRespond
+[2026-01-12T23:50:05.929Z] Host.Functions.Ping
+[2026-01-12T23:50:05.930Z] Host.Functions.Respond
+[2026-01-12T23:50:05.930Z] Host.Functions.SubmitProfile
+[2026-01-12T23:50:05.931Z] 
+[2026-01-12T23:50:05.937Z] HttpOptions
+[2026-01-12T23:50:05.938Z] {
+[2026-01-12T23:50:05.938Z] Initializing function HTTP routes
+[2026-01-12T23:50:05.939Z]   "DynamicThrottlesEnabled": false,
+[2026-01-12T23:50:05.939Z] Mapped function route 'api/profiles' [get,delete] to 'admin'
+[2026-01-12T23:50:05.939Z]   "EnableChunkedRequestBinding": false,
+[2026-01-12T23:50:05.941Z] Mapped function route 'api/BlockPair' [post] to 'BlockPair'
+[2026-01-12T23:50:05.941Z]   "MaxConcurrentRequests": -1,
+[2026-01-12T23:50:05.941Z] Mapped function route 'api/ExpireMatches' [get] to 'ExpireMatches'
+[2026-01-12T23:50:05.942Z]   "MaxOutstandingRequests": -1,
+[2026-01-12T23:50:05.942Z] Mapped function route 'api/GetMatchContacts' [get] to 'GetMatchContacts'
+[2026-01-12T23:50:05.943Z]   "RoutePrefix": "api"
+[2026-01-12T23:50:05.946Z] Mapped function route 'api/GetProfiles' [get] to 'GetProfiles'
+[2026-01-12T23:50:05.947Z] }
+[2026-01-12T23:50:05.947Z] Mapped function route 'api/IssueOptInTokens' [get] to 'IssueOptInTokens'
+[2026-01-12T23:50:05.949Z] Mapped function route 'api/MatchNow' [post] to 'MatchNow'
+[2026-01-12T23:50:05.949Z] Mapped function route 'api/MatchRespond' [get] to 'MatchRespond'
+[2026-01-12T23:50:05.950Z] Mapped function route 'api/Ping' [get] to 'Ping'
+[2026-01-12T23:50:05.950Z] Mapped function route 'api/Respond' [get] to 'Respond'
+[2026-01-12T23:50:05.950Z] Mapped function route 'api/SubmitProfile' [get,post] to 'SubmitProfile'
+[2026-01-12T23:50:05.951Z] 
+[2026-01-12T23:50:05.957Z] Host initialized (123ms)
+[2026-01-12T23:50:05.960Z] Host started (132ms)
+[2026-01-12T23:50:05.961Z] Job host started
+[2026-01-12T23:50:05.971Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\jws\lib'
+[2026-01-12T23:50:05.973Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:05.976Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\ecdsa-sig-formatter\src'
+[2026-01-12T23:50:05.977Z] Host configuration has changed. Signaling restart
+
+Functions:
+
+[2026-01-12T23:50:05.979Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\jsonwebtoken\lib'
+	admin: [GET,DELETE] http://localhost:7071/api/profiles
+[2026-01-12T23:50:05.981Z] Host configuration has changed. Signaling restart
+
+	BlockPair: [POST] http://localhost:7071/api/BlockPair
+
+	ExpireMatches: [GET] http://localhost:7071/api/ExpireMatches
+
+	GetMatchContacts: [GET] http://localhost:7071/api/GetMatchContacts
+
+	GetProfiles: [GET] http://localhost:7071/api/GetProfiles
+
+	IssueOptInTokens: [GET] http://localhost:7071/api/IssueOptInTokens
+
+[2026-01-12T23:50:05.989Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\semver\internal'
+	MatchNow: [POST] http://localhost:7071/api/MatchNow
+[2026-01-12T23:50:05.992Z] Host configuration has changed. Signaling restart
+
+	MatchRespond: [GET] http://localhost:7071/api/MatchRespond
+
+[2026-01-12T23:50:05.996Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\semver\classes'
+	Ping: [GET] http://localhost:7071/api/Ping
+
+[2026-01-12T23:50:05.997Z] Host configuration has changed. Signaling restart
+	Respond: [GET] http://localhost:7071/api/Respond
+
+[2026-01-12T23:50:05.998Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\semver\functions'
+	SubmitProfile: [GET,POST] http://localhost:7071/api/SubmitProfile
+
+[2026-01-12T23:50:05.999Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.024Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\semver\ranges'
+[2026-01-12T23:50:06.025Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.050Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-client\dist\commonjs'
+[2026-01-12T23:50:06.051Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.061Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\abort-controller'
+[2026-01-12T23:50:06.063Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.063Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\logger'
+[2026-01-12T23:50:06.063Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.066Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\auth'
+[2026-01-12T23:50:06.066Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.068Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\util'
+[2026-01-12T23:50:06.069Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.080Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\client'
+[2026-01-12T23:50:06.081Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.088Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\retryStrategies'
+[2026-01-12T23:50:06.089Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.095Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\https-proxy-agent\dist'
+[2026-01-12T23:50:06.096Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.096Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\debug\src'
+[2026-01-12T23:50:06.097Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.102Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\agent-base\dist'
+[2026-01-12T23:50:06.103Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.105Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\http-proxy-agent\dist'
+[2026-01-12T23:50:06.106Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.114Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@typespec\ts-http-runtime\dist\commonjs\policies\auth'
+[2026-01-12T23:50:06.115Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.123Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-rest-pipeline\dist\commonjs\policies'
+[2026-01-12T23:50:06.124Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.125Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\logger\dist\commonjs'
+[2026-01-12T23:50:06.125Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.137Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-rest-pipeline\dist\commonjs\util'
+[2026-01-12T23:50:06.138Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.140Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-util\dist\commonjs'
+[2026-01-12T23:50:06.141Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.147Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-util\node_modules\@azure\abort-controller\dist\commonjs'
+[2026-01-12T23:50:06.147Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.157Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\core-tracing\dist\commonjs'
+[2026-01-12T23:50:06.158Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.181Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@azure\abort-controller\dist'
+[2026-01-12T23:50:06.182Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.215Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\stoppable\lib'
+[2026-01-12T23:50:06.215Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.227Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\sprintf-js\src'
+[2026-01-12T23:50:06.228Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.233Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\js-md4\src'
+[2026-01-12T23:50:06.234Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.238Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\tedious\lib\always-encrypted'
+[2026-01-12T23:50:06.239Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.250Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\readable-stream\lib\internal\streams'
+[2026-01-12T23:50:06.251Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.272Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\tedious\lib\data-types'
+[2026-01-12T23:50:06.272Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.285Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\@js-joda\core\dist'
+[2026-01-12T23:50:06.286Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.330Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\iconv-lite\lib'
+[2026-01-12T23:50:06.331Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.400Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\es-abstract\helpers\records'
+[2026-01-12T23:50:06.400Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.461Z] Watched directory change of type 'Changed' detected for 'C:\Users\Andreas\Documents\singel-generator\api-test\node_modules\math-intrinsics\constants'
+[2026-01-12T23:50:06.462Z] Host configuration has changed. Signaling restart
+[2026-01-12T23:50:06.521Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.531Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest[2026-01-12T23:50:06.531Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.532Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest[2026-01-12T23:50:06.532Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+
+[2026-01-12T23:50:06.532Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.532Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.533Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+
+[2026-01-12T23:50:06.534Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.533Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.533Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 received FunctionLoadRequest
+[2026-01-12T23:50:06.972Z] Restarting host.
+[2026-01-12T23:50:06.975Z] ScriptHostRecycleOptions
+[2026-01-12T23:50:06.976Z] {
+[2026-01-12T23:50:06.977Z]   "SequentialHostRestartRequired": true
+[2026-01-12T23:50:06.978Z] }
+[2026-01-12T23:50:06.982Z] Stopping JobHost
+[2026-01-12T23:50:06.985Z] Job host stopped
+[2026-01-12T23:50:06.998Z] Building host: version spec: , startup suppressed: 'False', configuration suppressed: 'False', startup operation id: 'edbca649-f0b0-4eb0-a981-f0ef988899c7'
+[2026-01-12T23:50:06.999Z] Reading host configuration file 'C:\Users\Andreas\Documents\singel-generator\api-test\host.json'
+[2026-01-12T23:50:07.000Z] Host configuration file read:
+[2026-01-12T23:50:07.000Z] {
+[2026-01-12T23:50:07.001Z]   "version": "2.0",
+[2026-01-12T23:50:07.002Z]   "extensionBundle": {
+[2026-01-12T23:50:07.005Z]     "id": "Microsoft.Azure.Functions.ExtensionBundle",
+[2026-01-12T23:50:07.006Z]     "version": "[4.*, 5.0.0)"
+[2026-01-12T23:50:07.006Z]   }
+[2026-01-12T23:50:07.007Z] }
+[2026-01-12T23:50:07.009Z] Looking for extension bundle Microsoft.Azure.Functions.ExtensionBundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle
+[2026-01-12T23:50:07.009Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:07.010Z] Found a matching extension bundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:07.011Z] Loading functions metadata
+[2026-01-12T23:50:07.011Z] Worker indexing is enabled
+[2026-01-12T23:50:07.013Z] Fetching metadata for workerRuntime: node
+[2026-01-12T23:50:07.013Z] Reading functions metadata (Worker)
+[2026-01-12T23:50:07.014Z] Shutting down language worker channels for runtime:node
+[2026-01-12T23:50:07.018Z] Worker d7284af3-eb3a-4b7c-aa89-8a30a8121353 exited with code 0
+[2026-01-12T23:50:07.162Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c connecting on 127.0.0.1:49926
+[2026-01-12T23:50:07.214Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received WorkerInitRequest
+[2026-01-12T23:50:07.221Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionsMetadataRequest
+[2026-01-12T23:50:07.222Z] Reading functions metadata (Host)
+[2026-01-12T23:50:07.227Z] 11 functions found (Host)
+[2026-01-12T23:50:07.227Z] 11 functions loaded
+[2026-01-12T23:50:07.228Z] Looking for extension bundle Microsoft.Azure.Functions.ExtensionBundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle
+[2026-01-12T23:50:07.229Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:07.229Z] Found a matching extension bundle at C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:07.230Z] Fetching information on versions of extension bundle Microsoft.Azure.Functions.ExtensionBundle available on https://cdn.functions.azure.com/public/ExtensionBundles/Microsoft.Azure.Functions.ExtensionBundle/index.json
+[2026-01-12T23:50:07.250Z] Applying platform release channel configuration LATEST. Bundle version 4.30.0 will be used
+[2026-01-12T23:50:07.253Z] Skipping bundle download since it already exists at path C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0
+[2026-01-12T23:50:07.253Z] Loading extension bundle from C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0\bin
+[2026-01-12T23:50:07.254Z] Script Startup resetting load context with base path: 'C:\Users\Andreas\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle\4.30.0\bin'.
+[2026-01-12T23:50:07.257Z] Reading host configuration file 'C:\Users\Andreas\Documents\singel-generator\api-test\host.json'
+[2026-01-12T23:50:07.258Z] Host configuration file read:
+[2026-01-12T23:50:07.258Z] {
+[2026-01-12T23:50:07.258Z]   "version": "2.0",
+[2026-01-12T23:50:07.259Z]   "extensionBundle": {
+[2026-01-12T23:50:07.260Z]     "id": "Microsoft.Azure.Functions.ExtensionBundle",
+[2026-01-12T23:50:07.261Z]     "version": "[4.*, 5.0.0)"
+[2026-01-12T23:50:07.263Z]   }
+[2026-01-12T23:50:07.263Z] }
+[2026-01-12T23:50:07.298Z] Initializing Warmup Extension.
+[2026-01-12T23:50:07.304Z] Initializing Host. OperationId: 'edbca649-f0b0-4eb0-a981-f0ef988899c7'.
+[2026-01-12T23:50:07.305Z] Host initialization: ConsecutiveErrors=0, StartupCount=2, OperationId=edbca649-f0b0-4eb0-a981-f0ef988899c7
+[2026-01-12T23:50:07.316Z] LoggerFilterOptions
+[2026-01-12T23:50:07.316Z] {
+[2026-01-12T23:50:07.317Z]   "MinLevel": "None",
+[2026-01-12T23:50:07.318Z]   "Rules": [
+[2026-01-12T23:50:07.318Z]     {
+[2026-01-12T23:50:07.322Z]       "ProviderName": null,
+[2026-01-12T23:50:07.323Z]       "CategoryName": "Microsoft.Hosting.Lifetime",
+[2026-01-12T23:50:07.324Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.324Z]       "Filter": null
+[2026-01-12T23:50:07.325Z]     },
+[2026-01-12T23:50:07.325Z]     {
+[2026-01-12T23:50:07.326Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.326Z]       "CategoryName": null,
+[2026-01-12T23:50:07.327Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.327Z]       "Filter": null
+[2026-01-12T23:50:07.329Z]     },
+[2026-01-12T23:50:07.330Z]     {
+[2026-01-12T23:50:07.330Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.331Z]       "CategoryName": null,
+[2026-01-12T23:50:07.331Z]       "LogLevel": null,
+[2026-01-12T23:50:07.332Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.332Z]     },
+[2026-01-12T23:50:07.333Z]     {
+[2026-01-12T23:50:07.335Z]       "ProviderName": null,
+[2026-01-12T23:50:07.335Z]       "CategoryName": null,
+[2026-01-12T23:50:07.338Z]       "LogLevel": null,
+[2026-01-12T23:50:07.338Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.339Z]     },
+[2026-01-12T23:50:07.339Z]     {
+[2026-01-12T23:50:07.340Z]       "ProviderName": null,
+[2026-01-12T23:50:07.340Z]       "CategoryName": null,
+[2026-01-12T23:50:07.341Z]       "LogLevel": null,
+[2026-01-12T23:50:07.341Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.342Z]     },
+[2026-01-12T23:50:07.342Z]     {
+[2026-01-12T23:50:07.343Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:07.343Z]       "CategoryName": null,
+[2026-01-12T23:50:07.343Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.344Z]       "Filter": null
+[2026-01-12T23:50:07.346Z]     },
+[2026-01-12T23:50:07.346Z]     {
+[2026-01-12T23:50:07.347Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:07.347Z]       "CategoryName": null,
+[2026-01-12T23:50:07.348Z]       "LogLevel": null,
+[2026-01-12T23:50:07.350Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.350Z]     },
+[2026-01-12T23:50:07.350Z]     {
+[2026-01-12T23:50:07.351Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.351Z]       "CategoryName": null,
+[2026-01-12T23:50:07.355Z]       "LogLevel": null,
+[2026-01-12T23:50:07.355Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.356Z]     }
+[2026-01-12T23:50:07.356Z]   ]
+[2026-01-12T23:50:07.357Z] }
+[2026-01-12T23:50:07.357Z] LoggerFilterOptions
+[2026-01-12T23:50:07.358Z] {
+[2026-01-12T23:50:07.358Z]   "MinLevel": "None",
+[2026-01-12T23:50:07.359Z]   "Rules": [
+[2026-01-12T23:50:07.359Z]     {
+[2026-01-12T23:50:07.359Z]       "ProviderName": null,
+[2026-01-12T23:50:07.360Z]       "CategoryName": "Microsoft.Hosting.Lifetime",
+[2026-01-12T23:50:07.361Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.363Z]       "Filter": null
+[2026-01-12T23:50:07.363Z]     },
+[2026-01-12T23:50:07.363Z]     {
+[2026-01-12T23:50:07.364Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.365Z]       "CategoryName": null,
+[2026-01-12T23:50:07.367Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.367Z]       "Filter": null
+[2026-01-12T23:50:07.367Z]     },
+[2026-01-12T23:50:07.368Z]     {
+[2026-01-12T23:50:07.368Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.368Z]       "CategoryName": null,
+[2026-01-12T23:50:07.368Z]       "LogLevel": null,
+[2026-01-12T23:50:07.371Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.373Z]     },
+[2026-01-12T23:50:07.373Z]     {
+[2026-01-12T23:50:07.374Z]       "ProviderName": null,
+[2026-01-12T23:50:07.374Z]       "CategoryName": null,
+[2026-01-12T23:50:07.375Z]       "LogLevel": null,
+[2026-01-12T23:50:07.375Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.375Z]     },
+[2026-01-12T23:50:07.376Z]     {
+[2026-01-12T23:50:07.376Z]       "ProviderName": null,
+[2026-01-12T23:50:07.377Z]       "CategoryName": null,
+[2026-01-12T23:50:07.377Z]       "LogLevel": null,
+[2026-01-12T23:50:07.380Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.382Z]     },
+[2026-01-12T23:50:07.382Z]     {
+[2026-01-12T23:50:07.383Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:07.383Z]       "CategoryName": null,
+[2026-01-12T23:50:07.384Z]       "LogLevel": "None",
+[2026-01-12T23:50:07.384Z]       "Filter": null
+[2026-01-12T23:50:07.385Z]     },
+[2026-01-12T23:50:07.385Z]     {
+[2026-01-12T23:50:07.388Z]       "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+[2026-01-12T23:50:07.388Z]       "CategoryName": null,
+[2026-01-12T23:50:07.389Z]       "LogLevel": null,
+[2026-01-12T23:50:07.389Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.390Z]     },
+[2026-01-12T23:50:07.390Z]     {
+[2026-01-12T23:50:07.391Z]       "ProviderName": "Azure.Functions.Cli.Diagnostics.ColoredConsoleLoggerProvider",
+[2026-01-12T23:50:07.391Z]       "CategoryName": null,
+[2026-01-12T23:50:07.392Z]       "LogLevel": null,
+[2026-01-12T23:50:07.392Z]       "Filter": "<AddFilter>b__0"
+[2026-01-12T23:50:07.393Z]     }
+[2026-01-12T23:50:07.393Z]   ]
+[2026-01-12T23:50:07.393Z] }
+[2026-01-12T23:50:07.394Z] HttpWorkerOptions
+[2026-01-12T23:50:07.397Z] {
+[2026-01-12T23:50:07.399Z]   "Type": 0,
+[2026-01-12T23:50:07.399Z]   "Description": null,
+[2026-01-12T23:50:07.400Z]   "Arguments": null,
+[2026-01-12T23:50:07.400Z]   "Port": 49931,
+[2026-01-12T23:50:07.401Z]   "IsPortManuallySet": false,
+[2026-01-12T23:50:07.401Z]   "EnableForwardingHttpRequest": false,
+[2026-01-12T23:50:07.402Z]   "EnableProxyingHttpRequest": false,
+[2026-01-12T23:50:07.402Z]   "InitializationTimeout": "00:00:30",
+[2026-01-12T23:50:07.404Z]   "CustomRoutesEnabled": false,
+[2026-01-12T23:50:07.405Z]   "Http": null
+[2026-01-12T23:50:07.405Z] }
+[2026-01-12T23:50:07.406Z] FunctionResultAggregatorOptions
+[2026-01-12T23:50:07.406Z] {
+[2026-01-12T23:50:07.407Z]   "BatchSize": 1000,
+[2026-01-12T23:50:07.407Z]   "FlushTimeout": "00:00:30",
+[2026-01-12T23:50:07.407Z]   "IsEnabled": true
+[2026-01-12T23:50:07.408Z] }
+[2026-01-12T23:50:07.408Z] ConcurrencyOptions
+[2026-01-12T23:50:07.408Z] {
+[2026-01-12T23:50:07.408Z]   "DynamicConcurrencyEnabled": false,
+[2026-01-12T23:50:07.409Z]   "MaximumFunctionConcurrency": 500,
+[2026-01-12T23:50:07.410Z]   "CPUThreshold": 0.8,
+[2026-01-12T23:50:07.410Z]   "SnapshotPersistenceEnabled": true
+[2026-01-12T23:50:07.414Z] }
+[2026-01-12T23:50:07.414Z] SingletonOptions
+[2026-01-12T23:50:07.416Z] {
+[2026-01-12T23:50:07.416Z]   "LockPeriod": "00:00:15",
+[2026-01-12T23:50:07.417Z]   "ListenerLockPeriod": "00:00:15",
+[2026-01-12T23:50:07.417Z]   "LockAcquisitionTimeout": "10675199.02:48:05.4775807",
+[2026-01-12T23:50:07.418Z]   "LockAcquisitionPollingInterval": "00:00:05",
+[2026-01-12T23:50:07.418Z]   "ListenerLockRecoveryPollingInterval": "00:01:00"
+[2026-01-12T23:50:07.418Z] }
+[2026-01-12T23:50:07.419Z] ScaleOptions
+[2026-01-12T23:50:07.421Z] {
+[2026-01-12T23:50:07.421Z]   "ScaleMetricsMaxAge": "00:02:00",
+[2026-01-12T23:50:07.422Z]   "ScaleMetricsSampleInterval": "00:00:10",
+[2026-01-12T23:50:07.422Z]   "MetricsPurgeEnabled": true,
+[2026-01-12T23:50:07.423Z]   "IsTargetScalingEnabled": true,
+[2026-01-12T23:50:07.423Z]   "IsRuntimeScalingEnabled": false
+[2026-01-12T23:50:07.423Z] }
+[2026-01-12T23:50:07.424Z] Starting JobHost
+[2026-01-12T23:50:07.425Z] Starting Host (HostId=gamepc-1450412319, InstanceId=61b65e02-4c1c-4386-9dd9-e91b6b27b168, Version=4.1045.200.25556, ProcessId=2808, AppDomainId=1, InDebugMode=False, InDiagnosticMode=False, FunctionsExtensionVersion=(null))
+[2026-01-12T23:50:07.425Z] Loading functions metadata
+[2026-01-12T23:50:07.426Z] Worker indexing is enabled
+[2026-01-12T23:50:07.430Z] Fetching metadata for workerRuntime: node
+[2026-01-12T23:50:07.431Z] Reading functions metadata (Worker)
+[2026-01-12T23:50:07.432Z] Reading functions metadata (Host)
+[2026-01-12T23:50:07.435Z] 11 functions found (Host)
+[2026-01-12T23:50:07.436Z] Reading functions metadata (Custom)
+[2026-01-12T23:50:07.437Z] 0 functions found (Custom)
+[2026-01-12T23:50:07.437Z] 11 functions loaded
+[2026-01-12T23:50:07.441Z] Generating 11 job function(s)
+[2026-01-12T23:50:07.441Z] Worker process started and initialized.
+[2026-01-12T23:50:07.452Z] Found the following functions:
+[2026-01-12T23:50:07.453Z] Host.Functions.admin
+[2026-01-12T23:50:07.454Z] Host.Functions.BlockPair
+[2026-01-12T23:50:07.454Z] Host.Functions.ExpireMatches
+[2026-01-12T23:50:07.454Z] Host.Functions.GetMatchContacts
+[2026-01-12T23:50:07.456Z] Host.Functions.GetProfiles
+[2026-01-12T23:50:07.456Z] Host.Functions.IssueOptInTokens
+[2026-01-12T23:50:07.458Z] Host.Functions.MatchNow
+[2026-01-12T23:50:07.459Z] Host.Functions.MatchRespond
+[2026-01-12T23:50:07.460Z] Host.Functions.Ping
+[2026-01-12T23:50:07.461Z] Host.Functions.Respond
+[2026-01-12T23:50:07.461Z] Host.Functions.SubmitProfile
+[2026-01-12T23:50:07.463Z] 
+[2026-01-12T23:50:07.464Z] HttpOptions
+[2026-01-12T23:50:07.464Z] Initializing function HTTP routes
+[2026-01-12T23:50:07.464Z] {
+[2026-01-12T23:50:07.465Z]   "DynamicThrottlesEnabled": false,
+[2026-01-12T23:50:07.465Z] Mapped function route 'api/profiles' [get,delete] to 'admin'
+[2026-01-12T23:50:07.465Z]   "EnableChunkedRequestBinding": false,
+[2026-01-12T23:50:07.466Z] Mapped function route 'api/BlockPair' [post] to 'BlockPair'
+[2026-01-12T23:50:07.466Z]   "MaxConcurrentRequests": -1,
+[2026-01-12T23:50:07.467Z] Mapped function route 'api/ExpireMatches' [get] to 'ExpireMatches'
+[2026-01-12T23:50:07.467Z]   "MaxOutstandingRequests": -1,
+[2026-01-12T23:50:07.468Z] Mapped function route 'api/GetMatchContacts' [get] to 'GetMatchContacts'
+[2026-01-12T23:50:07.468Z]   "RoutePrefix": "api"
+[2026-01-12T23:50:07.468Z] Mapped function route 'api/GetProfiles' [get] to 'GetProfiles'
+[2026-01-12T23:50:07.469Z] }
+[2026-01-12T23:50:07.471Z] Mapped function route 'api/IssueOptInTokens' [get] to 'IssueOptInTokens'
+[2026-01-12T23:50:07.472Z] Mapped function route 'api/MatchNow' [post] to 'MatchNow'
+[2026-01-12T23:50:07.472Z] Mapped function route 'api/MatchRespond' [get] to 'MatchRespond'
+[2026-01-12T23:50:07.474Z] Mapped function route 'api/Ping' [get] to 'Ping'
+[2026-01-12T23:50:07.476Z] Mapped function route 'api/Respond' [get] to 'Respond'
+[2026-01-12T23:50:07.476Z] Mapped function route 'api/SubmitProfile' [get,post] to 'SubmitProfile'
+[2026-01-12T23:50:07.477Z] 
+[2026-01-12T23:50:07.477Z] Host initialized (52ms)
+[2026-01-12T23:50:07.480Z] Host started (55ms)
+[2026-01-12T23:50:07.480Z] Job host started
+[2026-01-12T23:50:07.481Z] Host restarted.
+[2026-01-12T23:50:07.919Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest[2026-01-12T23:50:07.919Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+[2026-01-12T23:50:07.921Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+[2026-01-12T23:50:07.920Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest[2026-01-12T23:50:07.920Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+[2026-01-12T23:50:07.922Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+[2026-01-12T23:50:07.923Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest[2026-01-12T23:50:07.921Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+
+[2026-01-12T23:50:07.920Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+
+[2026-01-12T23:50:07.927Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+
+[2026-01-12T23:50:07.927Z] Worker 7333a7fd-97cb-4e51-b011-50a52ef0342c received FunctionLoadRequest
+[2026-01-12T23:50:12.330Z] Host lock lease acquired by instance ID '0000000000000000000000003D8F6C3C'.

@@ -1,0 +1,11 @@
+{
+  "type": "commonjs",
+  "version": "1.0.0",
+  "name": "api-test",
+  "dependencies": {
+    "tedious": "^14.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

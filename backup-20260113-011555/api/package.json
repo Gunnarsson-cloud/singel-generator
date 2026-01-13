@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "tedious": "^14.0.0",
+
+    "@azure-rest/core-client": "1.1.0",
+    "@azure/core-auth": "1.7.2",
+    "@azure/core-client": "1.9.2",
+    "@azure/core-http-compat": "2.2.0",
+    "@azure/core-rest-pipeline": "1.15.0",
+    "@azure/core-tracing": "1.2.0",
+    "@azure/core-util": "1.8.0",
+    "@azure/logger": "1.1.0"
+  }
+}

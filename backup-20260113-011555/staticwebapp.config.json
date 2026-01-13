@@ -1,0 +1,33 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/api/*"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/admin",
+      "allowedRoles": [
+        "authenticated"
+      ]
+    },
+    {
+      "route": "/api/*",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "allowedRoles": [
+        "anonymous"
+      ]
+    },
+    {
+      "route": "/admin/*",
+      "allowedRoles": [
+        "authenticated"
+      ]
+    }
+  ]
+}
